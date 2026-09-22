@@ -76,6 +76,6 @@ jobs:
 
       - name: Build Docker Image
         env:
-          REACT_APP_MOVIE_API_URL: "http://localhost:5000"
+          REACT_APP_MOVIE_API_URL: 'http://localhost:5000'
         run: |
           docker build --build-arg REACT_APP_MOVIE_API_URL=$REACT_APP_MOVIE_API_URL --tag mp-frontend:latest .
