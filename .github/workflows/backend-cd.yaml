@@ -54,7 +54,7 @@ jobs:
       - name: Build and Push Docker Image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: mp-backend
+          ECR_REPOSITORY: backend
           IMAGE_TAG: ${{ github.sha }}
         run: |
           cd starter/backend
@@ -64,7 +64,7 @@ jobs:
       - name: Deploy to EKS
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: mp-backend
+          ECR_REPOSITORY: backend
           IMAGE_TAG: ${{ github.sha }}
         run: |
           aws eks update-kubeconfig --name cluster --region ${{ secrets.AWS_DEFAULT_REGION }}
